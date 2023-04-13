@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0329 javascript-7</title>
+  </head>
+  <body>
+    <button>執行操作</button>
+    <p></p>
+
+    <script>
+      var myVariable = "ZZ";
+      var myAge = 15;
+
+      document.getElementsByTagName("button")[0].onclick = function () {
+        // &&兩個條件都要符合
+        // if (myAge >= 18 && myVariable == "ZZ") {
+        //   document.getElementsByTagName("p")[0].innerHTML = "已成年的ZZ";
+        // } else {
+        //   document.getElementsByTagName("p")[0].innerHTML = "未成年";
+        // }
+
+        // ||其中一個符合即可
+        if (myAge >= 18 || myVariable == "ZZ") {
+          document.getElementsByTagName("p")[0].innerHTML = "已成年，或是ZZ";
+        } else {
+          document.getElementsByTagName("p")[0].innerHTML =
+            "未成年，且也不是ZZ";
+        }
+      };
+    </script>
+  </body>
+</html>

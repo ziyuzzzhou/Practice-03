@@ -1,0 +1,236 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.header_left {
+  display: flex;
+  align-items: center;
+}
+
+.header_menu {
+  /* margin-left: 16px;
+    margin-right: 16px; */
+  /* 上右下左，順時針
+    margin: 0 16px 0 16px; */
+  /* 上下 / 左右 */
+  margin: 0 16px;
+}
+
+.youtube-logo {
+  margin-left: 16px;
+}
+
+.menu-icons {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 1.5rem;
+  align-items: center;
+}
+
+.channel-icon-4 {
+  width: 36px;
+  height: 36px;
+  /* 圓角的半徑
+    border-radius: 18px; */
+  border-radius: 50%;
+}
+
+.search-bar {
+  display: flex;
+  flex-grow: 1;
+  margin: 0 4rem;
+}
+
+.search-input {
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.6em;
+  border: 1px solid #c6c6c6;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.search-btn {
+  display: flex;
+  align-items: center;
+  padding: 0 1.25rem;
+  border: 1px solid #c6c6c6;
+  background-color: #f8f8f8;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: none;
+  cursor: pointer;
+}
+
+.search-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.search-bar a {
+  display: flex;
+  /* align-items: center; */
+  margin-left: 1rem;
+}
+
+.mainbody {
+  display: flex;
+  /* 扣除header's height */
+  height: calc(100% - 71.86px);
+}
+
+.sidebar {
+  background-color: white;
+  width: 230px;
+}
+
+.sidebar_cata {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 15px 25px;
+}
+
+.sidebar-font {
+  font-size: 0.9rem;
+  margin-left: 24px;
+}
+
+.sidebar_cata.active {
+  background-color: #e5e5e5;
+  font-weight: bold;
+}
+
+.sidebar_cata.active:hover {
+  background-color: #ddd;
+}
+
+.sidebar_cata:hover {
+  background-color: #f9f9f9;
+}
+
+.video-container {
+  display: flex;
+  /* 改變方向 */
+  flex-direction: column;
+}
+
+.thumbnail-img {
+  width: 100%;
+  height: 100%;
+}
+
+.video-description {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.channel-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-right: 0.75rem;
+}
+
+.video-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.video-title {
+  /* 去除超連結默認顯示方式，去藍色 */
+  color: black;
+  /* 去底線 */
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.video-channel-name {
+  font-size: 0.9rem;
+  margin-bottom: 0.1rem;
+  text-decoration: none;
+  /* 動畫過場，延遲 */
+  transition: color 600ms;
+}
+
+.video-channel-name:hover {
+  color: #111;
+}
+
+.video-channel-name,
+.video-metadata {
+  color: #555;
+}
+
+.thumbnail {
+  position: relative;
+  /* display: flex; */
+}
+
+.thumbnail::before {
+  /* 屬性attr */
+  content: attr(data-duration);
+  position: absolute;
+  right: 5px;
+  /* bottom: 5px; */
+  bottom: 8px;
+  background-color: black;
+  border-radius: 0.3rem;
+  color: white;
+  font-size: 0.9rem;
+  padding: 0.1rem 0.3rem;
+}
+
+.video {
+  background-color: #f9f9f9;
+  width: 100%;
+}
+
+.video-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  /* row / column */
+  grid-gap: 3rem 1rem;
+  /* 上下 / 左右 */
+  padding: 3rem 0;
+  /* 上下 / 左右 */
+  margin: 0 1.5rem;
+  border-top: 1px solid #ddd;
+}
+
+.video-section:first-child {
+  border: none;
+}
+
+.video-section-title {
+  display: flex;
+  /* 做整行的拉伸，不行用span，因為span需要計算格子數 */
+  /* 1 / -1 意思是從第一格到最後一格，占據整行 */
+  grid-column: 1 / -1;
+  justify-content: space-between;
+  align-items: center;
+  margin: -0.5rem 0;
+}
+
+.video-section-title-close {
+  background: none;
+  border: none;
+  color: #555;
+  cursor: pointer;
+  font-size: 1.5rem;
+}

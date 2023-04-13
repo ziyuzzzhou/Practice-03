@@ -1,0 +1,124 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+  /* 多出黑背景的部分不留白 */
+  overflow: hidden;
+}
+
+.universe {
+  height: 100vh;
+  background-image: radial-gradient(#555, #000);
+}
+
+.stars {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../images/stars.png);
+  background-size: cover;
+  background-position: center;
+
+  /* alternate返回 */
+  animation: star-pulse 0.8s infinite alternate;
+}
+
+@keyframes star-pulse {
+  100% {
+    opacity: 0.4;
+  }
+}
+
+.sun {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-image: radial-gradient(#f5c313, #ec7e08);
+  /* 不須位移 0 0，30px為光暈程度*/
+  box-shadow: 0 0 30px #f5c91a;
+
+  position: absolute;
+  /* 不確定位置可先將div還原成方形 */
+  left: calc(100vw / 2 - 200px / 2);
+  top: calc(100vh / 2 - 200px / 2);
+
+  animation: sun-fire 2s infinite alternate;
+}
+
+@keyframes sun-fire {
+  100% {
+    box-shadow: 0 0 100px #f5c91a;
+  }
+}
+
+.earth_orbit {
+  /* 須讓圓形不超出黑背景，選擇div短邊作為方形寬高(圓形直徑) */
+  /* height比width短，所以長寬都設為90vh */
+  width: 90vh;
+  height: 90vh;
+  border-radius: 50%;
+  /* border: 2px dashed gold; */
+
+  position: absolute;
+  left: calc(100vw / 2 - 90vh / 2);
+  top: calc(100vh / 2 - 90vh / 2);
+
+  /* linear線性，動作連貫 */
+  animation: spin 30s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.moon_orbit {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  /* border: 2px dashed gold; */
+
+  position: absolute;
+  left: calc(-120px / 2);
+  top: calc(50% - 120px / 2);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* 跟.earth_orbit一樣的動畫效果 */
+  animation: spin 30s linear infinite;
+}
+
+.earth {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+
+  animation: dontspin 30s linear infinite;
+}
+
+@keyframes dontspin {
+  100% {
+    transform: rotate(-720deg);
+  }
+}
+
+.earth img {
+  width: 80px;
+}
+
+.moon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-image: radial-gradient(#ddd, #888);
+
+  position: absolute;
+  left: calc(-30px / 2);
+}

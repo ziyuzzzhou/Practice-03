@@ -1,0 +1,48 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.headerfooter {
+  background-color: rgb(179, 211, 178);
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  height: 10vh;
+}
+
+.text-align {
+  border: 1px dashed rgb(189, 189, 222);
+  font-size: 25px;
+  padding: 20px;
+  text-align: center;
+}
+
+.item1 {
+  background-color: #74cfd2;
+  flex: 1 1;
+}
+
+.item2 {
+  background-color: #dfc2ae;
+  flex: 1 1 150px;
+}
+
+.item3 {
+  background-color: #dfe19c;
+  flex: 1 1;
+}
+
+.container-1 {
+  border: 1px dashed rgb(189, 189, 222);
+  width: 40vw;
+  resize: horizontal;
+  overflow: hidden;
+}
+
+.container-2 {
+  display: flex;
+  height: 70vh;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0329 javascript-1</title>
+  </head>
+  <body>
+    <h1>Learning JS</h1>
+    <h2>JS 初學</h2>
+    <!-- onclick代表被點按後有動作 -->
+    <!-- 注意單引號雙引號 -->
+    <button onclick="alert('你好!!!')">
+      點選!!!
+    </button>
+    <button>快點!!!</button>
+    <button id="myBtn">還不點!!!</button>
+    <p class="txt">獲取一段文字</p>
+    <p id="txt">獲取一段文字</p>
+    <!-- 區隔 -->
+    <button class="hihihi">點選後修改下方文字</button>
+    <p class="hohoho">快點選上方按鈕讓我被修改!</p>
+    <!-- 區隔 -->
+    <button id="btn-1">按鈕111</button>
+    <p id="p-1">我還想添加:</p>
+    <!-- 區隔 -->
+    <button id="btn-2">按鈕222</button>
+    <p id="p-2"></p>
+    <!-- 區隔 -->
+    <button id="btn-3">按鈕333</button>
+    <p id="p-3"></p>
+
+    <!-- 放入javascript代碼 -->
+    <script>
+      //   alert("頁面加載");
+
+      // innerHTML獲取html裡的值
+      // 等於符號: 賦予新的值
+      // 會有多個class，所以需要加[0]以選取第一個
+      document.getElementsByClassName("txt")[0].innerHTML =
+        "獲取 class 後的修改文字";
+
+      // 只有一個id，所以不須加[]選取
+      document.getElementById("txt").innerHTML = "獲取 id 後的修改文字";
+
+      // 會有多個tag，所以需要加[1]以選取第二個
+      document.getElementsByTagName("button")[1].innerHTML = "修改的按鈕";
+
+      document.getElementById("myBtn").onclick = function () {
+        alert("響應點按動作成功!!!");
+      };
+
+      document.getElementsByClassName("hihihi")[0].onclick = function () {
+        document.getElementsByClassName("hohoho")[0].innerHTML =
+          "我被修改囉哈哈哈";
+      };
+
+      document.getElementById("btn-1").onclick = function () {
+        document.getElementById("p-1").innerHTML =
+          document.getElementById("p-1").innerHTML + " 已添加";
+      };
+
+      //   方法一: +
+      document.getElementById("btn-2").onclick = function () {
+        document.getElementById("p-2").innerHTML =
+          // 注意單雙引號
+          "<h1>Learning JS</h1>" +
+          "<h2>JS 初學</h2>" +
+          "<p class='txt'>獲取一段文字</p>";
+      };
+
+      //   方法二: \
+      document.getElementById("btn-3").onclick = function () {
+        document.getElementById("p-3").innerHTML =
+          '<h1>Learning JS</h1>\
+          <h2>JS 初學</h2>\
+          <p class="txt">獲取一段文字</p>';
+      };
+    </script>
+  </body>
+</html>

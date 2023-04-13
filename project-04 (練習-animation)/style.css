@@ -1,0 +1,166 @@
+body {
+  font-size: 5rem;
+  font-weight: bold;
+  color: rgb(134, 134, 210);
+}
+
+/* media query 媒體設備查詢 */
+/* @media
+1. screen 當前設備
+2. print 預覽模式
+3. screen reader 視聽人士 */
+
+/* all and可省略
+@media all and (min-width: 30rem) */
+@media (min-width: 30rem) {
+  body {
+    background: rgb(235, 229, 194);
+  }
+  .title-1 {
+    color: rgb(106, 184, 122);
+  }
+}
+
+/* 手機直放 */
+@media (orientation: portrait) {
+  .title-2 {
+    color: rgb(149, 230, 230);
+  }
+}
+
+/* 手機橫放 */
+@media (orientation: landscape) {
+  .title-1 {
+    color: rgb(197, 148, 105);
+  }
+
+  .title-3 {
+    color: rgb(168, 89, 122);
+  }
+}
+
+/* -------------------------------------- */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  font-family: "Tilt Neon", cursive;
+  font-weight: 500;
+}
+
+:root {
+  --container-width: 800px;
+  --container-height1: 200px;
+  --container-height: 500px;
+  --box-width: 200px;
+  --box-height: 200px;
+}
+
+.container {
+  background-color: rgb(185, 201, 190);
+  border-radius: 80px;
+  width: var(--container-width);
+  height: var(--container-height1);
+  margin-top: 30px;
+  transition: background-color 1.2s;
+}
+
+.box {
+  background-color: rgb(227, 194, 164);
+  border-radius: 80px;
+  width: var(--box-width);
+  height: var(--box-height);
+  transition: transform 1s cubic-bezier(0.55, 0.09, 0.68, 0.53) 0.2s,
+    background-color 1.2s;
+  /* transition-timing-function: ease-in-out; */
+  /* transition-delay: 0.2s; */
+}
+
+/* 游標移到container的時候，container下層的box會移動 */
+.container:hover .box {
+  /* transform移動，translateX橫向移動 */
+  /* 輸入100%是原本box width的100%，不是container的100% */
+  /* transform: translateX(100%); */
+  /* container width - box width就會移至最右邊 */
+  transform: translateX(calc(800px - 200px));
+  background-color: rgb(166, 142, 110);
+}
+
+.container:hover {
+  background: rgb(160, 148, 160);
+  cursor: pointer;
+}
+
+.capy {
+  width: 160px;
+  margin: 20px;
+}
+
+/* -------------------------------------- */
+
+.container2 {
+  background-color: rgb(185, 201, 190);
+  border-radius: 80px;
+  width: var(--container-width);
+  height: var(--container-height);
+  margin-top: 40px;
+  transition: background-color 1.2s;
+}
+
+.box2 {
+  background-color: rgb(227, 194, 164);
+  border-radius: 80px;
+  width: var(--box-width);
+  height: var(--box-height);
+  /* 整個動畫時長有2s，延遲0.2s才開始動畫 */
+  animation: momomo 2s infinite alternate 0.2s;
+}
+
+.container2:hover .box2 {
+  /* animation不會保留動畫效果，須加上forwards，會保留動畫效果，直到游標移走 */
+  /* animation: move 2s forwards infinite alternate 0.2s; */
+  /* 巡迴次數
+  animation-iteration-count: 3;
+  animation-iteration-count: infinite; */
+  /* 從左到右再由又到左
+  animation-direction: alternate; */
+  /* 動畫播放狀態 */
+  animation-play-state: paused;
+}
+
+/* @keyframes "identifier" 上面animation已定義 */
+@keyframes momomo {
+  /* 0% 最初一幕的動畫效果，不須定義0%
+  100% 最後一幕的動畫效果 */
+
+  25% {
+    transform: translateY(calc(var(--container-height) - var(--box-height)));
+    background-color: rgb(211, 179, 151);
+  }
+
+  75% {
+    /* 先往下，再往右，中間空格，前後顛倒放也可執行 */
+    transform: translateY(calc(var(--container-height) - var(--box-height)))
+      translateX(calc(var(--container-width) - var(--box-width)));
+    background-color: rgb(163, 139, 117);
+  }
+
+  100% {
+    transform: translateX(calc(var(--container-width) - var(--box-width)));
+    background-color: rgb(132, 113, 87);
+  }
+}
+
+.container2:hover {
+  background: rgb(160, 148, 160);
+  cursor: pointer;
+}
+
+.title-1,
+.title-2,
+.title-3,
+.container,
+.container2 {
+  margin-left: 20px;
+}

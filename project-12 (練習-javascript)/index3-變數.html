@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0329 javascript-3</title>
+    <style>
+      #circle {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        background-color: #aaf;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      #circle p {
+        color: rgb(77, 176, 77);
+        font-size: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Learning JS</h1>
+    <div id="circle">
+      <p>this is text 1</p>
+    </div>
+
+    <script>
+      // 命名變數不可使用數字、空格、橫槓-
+      var myVariable = "circle";
+
+      document.getElementById(myVariable).onclick = function () {
+        document.getElementById(myVariable).style.backgroundColor = "#aff";
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0330 javascript-8</title>
+  </head>
+  <body>
+    <button>執行操作</button>
+    <p></p>
+
+    <script>
+      var myAge = 35;
+
+      // 第二種作法
+      var output = myAge >= 18 ? "已成年" : "未成年";
+
+      document.getElementsByTagName("button")[0].onclick = function () {
+        // 第一種作法
+        // if (myAge >= 18) {
+        //   document.getElementsByTagName("p")[0].innerHTML = "已成年";
+        // } else {
+        //   document.getElementsByTagName("p")[0].innerHTML = "未成年";
+        // }
+
+        // 第二種作法
+        document.getElementsByTagName("p")[0].innerHTML = output;
+      };
+    </script>
+  </body>
+</html>

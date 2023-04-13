@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0330 javascript-13</title>
+    <style media="screen">
+      #canvas {
+        border: 1px solid #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JS Learning</h1>
+    <canvas id="canvas" width="300" height="300"></canvas>
+
+    <script>
+      var x = 150;
+      var y = 75;
+      var radius = 100;
+
+      // 第一種
+      // function better_radius() {
+      //   if (radius > y) {
+      //     return 75;
+      //   } else {
+      //     return radius;
+      //   }
+      // }
+
+      // radius = better_radius();
+
+      // function my_circle() {
+      //   var canvas = document.getElementById("canvas");
+      //   var ctx = canvas.getContext("2d");
+
+      //   ctx.fillStyle = "lightblue";
+      //   ctx.arc(x, y, radius, 0, Math.PI * 2);
+      //   ctx.fill();
+      // }
+
+      // my_circle();
+
+      // 第二種-1
+      // function better_radius(b, rad) {
+      //   if (rad > b) {
+      //     return 75;
+      //   } else {
+      //     return rad;
+      //   }
+      // }
+
+      // radius = better_radius(y, radius);
+
+      // 第二種-2
+      // 可初始化function的值rad=20
+      function better_radius(b, rad = 20) {
+        if (rad > b) {
+          return 75;
+        } else {
+          return rad;
+        }
+      }
+
+      // 如果不填radius，就會直接給他初始化的值=20
+      radius = better_radius(y);
+
+      function my_circle(a, b, rad) {
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "lightblue";
+        ctx.arc(a, b, rad, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      my_circle(x, y, radius);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+:root {
+  --btn-color: #1a73e8;
+  --input-color: #80868b;
+  --border-color: #dadce0;
+
+  --body-font: "Roboto", sans-serif;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.75rem;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+.form {
+  width: 360px;
+  padding: 4rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
+}
+
+.form-title {
+  font-weight: 400;
+  margin-bottom: 3rem;
+}
+
+.form-div {
+  height: 48px;
+  margin-bottom: 1.5rem;
+
+  position: relative;
+}
+
+.form-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  padding: 1rem;
+  font-size: var(--normal-font-size);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  outline: none;
+  background: none;
+
+  z-index: 1;
+}
+
+.form-input:focus {
+  border: 1.5px solid var(--btn-color);
+}
+
+.form-label {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+
+  padding: 0 0.25rem;
+  font-size: var(--normal-font-size);
+  color: var(--input-color);
+  background-color: #fff;
+
+  transition: 0.3s;
+}
+
+.form-input:focus + .form-label {
+  top: -0.6rem;
+  left: 0.8rem;
+
+  color: var(--btn-color);
+  font-size: var(--small-font-size);
+  font-weight: 500;
+
+  z-index: 10;
+}
+
+.form-input:not(:placeholder-shown).form-input:not(:focus) + .form-label {
+  top: -0.6rem;
+  left: 0.8rem;
+
+  color: var(--btn-color);
+  font-size: var(--small-font-size);
+  font-weight: 500;
+
+  z-index: 10;
+}
+
+.form-btn {
+  display: block;
+  /* 左邊自動填滿，也就是靠右對齊 */
+  margin-left: auto;
+  padding: 0.75rem 2rem;
+
+  font-size: var(--normal-font-size);
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--btn-color);
+  color: #fff;
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.form-btn:hover {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}

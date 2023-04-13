@@ -1,0 +1,37 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.background-style {
+  background-color: #7dcde0;
+  border: 1px dashed silver;
+  width: 500px;
+  height: 500px;
+  margin-top: 2rem;
+  resize: both;
+  overflow: auto;
+}
+
+.text-align {
+  font-size: 1.8rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.item {
+  background-color: pink;
+  border: 1px solid red;
+  /* 設定圓角 */
+  border-radius: 30px;
+  margin: 5px;
+  /* flex-grow flex-shrink flex-basis */
+  flex: 0 1 150px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

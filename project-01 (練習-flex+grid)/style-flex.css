@@ -1,0 +1,52 @@
+* {
+  box-sizing: border-box;
+}
+
+.box-item {
+  background-color: #cfd386;
+  border: 5px solid rgb(46, 46, 148);
+  width: 200px;
+  margin: 20px;
+}
+
+.box-item1 {
+  height: 100px;
+  /* min-height: 100px; */
+  flex-shrink: 0;
+  /* 不會隨著瀏覽器大小收縮 */
+}
+
+.box-item2 {
+  height: 200px;
+  /* min-height: 200px; */
+  flex-grow: 2;
+  flex-basis: 0;
+  /* 設定為0就不會扣除box-item寬度200px再算2:1，會直接計算寬度為2:1 */
+}
+
+.box-item3 {
+  height: 300px;
+  /* min-height: 300px; */
+  flex-grow: 1;
+  flex-basis: 0;
+  /* 設定為0就不會扣除box-item寬度200px再算2:1，會直接計算寬度為2:1 */
+}
+
+.flexbox-container {
+  background-color: #b16464;
+  display: flex;
+  /* 預設是row，如果改成column橫向縱向設定會相反 */
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  /* 針對橫向排佈設定 */
+  /* justify-content: center; 
+    justify-content: space-between;
+    justify-content: space-around; */
+  justify-content: flex-start;
+  /* 針對縱向排佈設定 */
+  /* align-items: center; */
+  /* 拉伸，默認值 */
+  /* align-items: stretch; */
+  align-items: flex-start;
+  align-content: space-between;
+}

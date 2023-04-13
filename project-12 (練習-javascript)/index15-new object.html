@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0331 javascript-15</title>
+    <style media="screen">
+      #canvas {
+        border: 1px solid #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JS Learning</h1>
+    <canvas id="canvas" width="300" height="300"></canvas>
+
+    <script>
+      // 第一個圓
+      // var circle = {
+      //   x: 100,
+      //   y: 75,
+      //   radius: 100,
+      //   better_radius: function (b, rad) {
+      //     if (rad > b) {
+      //       return 75;
+      //     } else {
+      //       return rad;
+      //     }
+      //   },
+      // };
+      // circle.radius = circle.better_radius(circle.y, circle.radius);
+
+      // 第二個圓
+      var circle2 = new Object();
+      circle2.x = 50;
+      circle2.y = 30;
+      circle2.radius = 20;
+
+      function my_circle(a, b, rad) {
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "lightblue";
+        ctx.arc(a, b, rad, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // 第一個圓
+      // my_circle(circle.x, circle.y, circle.radius);
+      
+      // 第二個圓
+      my_circle(circle2.x, circle2.y, circle2.radius);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0329 javascript-4</title>
+  </head>
+  <style>
+    p {
+      font-size: 4rem;
+    }
+  </style>
+  <body>
+    <input type="text" value="" />
+    <button>執行操作</button>
+    <p>一段文字</p>
+
+    <script>
+      var myVariable = document.getElementsByTagName("input")[0].value;
+
+      document.getElementsByTagName("button")[0].onclick = function () {
+        myVariable = document.getElementsByTagName("input")[0].value;
+        document.getElementsByTagName("p")[0].innerHTML = myVariable;
+      };
+    </script>
+  </body>
+</html>

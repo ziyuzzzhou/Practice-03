@@ -1,0 +1,256 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+@import "./settings";
+
+@mixin text-margin($margin) {
+  text-align: center;
+  margin: 0 $margin;
+}
+
+@mixin margin-center($margin) {
+  max-width: 1200px;
+  margin: 0 $margin;
+}
+
+.fixed-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $z-fixed;
+  background-color: $black-color;
+  opacity: 0.95;
+}
+
+.nav {
+  @include text-margin(2rem);
+  height: $header-height;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-logo {
+    color: $white-color;
+    font-weight: $font-light;
+    font-size: $big-font-size;
+  }
+
+  // 這個寫法
+  &-menu {
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &-link {
+    color: $white-color;
+  }
+
+  &-btn {
+    background-color: $second-color;
+    border-radius: 1rem;
+    color: $white-color;
+    padding: 0.375rem 1rem;
+  }
+}
+
+.home {
+  margin-top: $header-height;
+  background-color: $bg-color;
+  height: 900px;
+  padding-bottom: 3rem;
+
+  &-content {
+    @include margin-center(auto);
+  }
+
+  &-data {
+    padding-top: 3.5rem;
+    @include text-margin(2rem);
+  }
+
+  &-title {
+    font-size: $biggest-font-size;
+    font-weight: $font-regular;
+  }
+
+  &-des {
+    font-size: $normal-font-size;
+    font-weight: $font-light;
+    sup {
+      position: relative;
+      top: -0.6em;
+      // 把小字跟一般文字放在同個基準點上面
+      vertical-align: baseline;
+      font-size: 0.6em;
+    }
+  }
+
+  &-img {
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem;
+    & img {
+      width: 150px;
+      height: 350px;
+      margin-right: 1rem;
+    }
+  }
+}
+
+// animation
+.airpod1 {
+  animation: airpod1 3s infinite;
+  @keyframes airpod1 {
+    50% {
+      transform: translateY(-6%);
+    }
+  }
+}
+
+.airpod2 {
+  animation: airpod2 3s infinite;
+  @keyframes airpod2 {
+    50% {
+      transform: translateY(6%);
+    }
+  }
+}
+
+.details {
+  display: grid;
+  grid-template-rows: 1fr min-content min-content;
+  justify-content: center;
+  align-items: center;
+  @include margin-center(auto);
+  padding-top: 10rem;
+  font-weight: $font-light;
+
+  &-data {
+    @include text-margin(2rem);
+  }
+
+  .data-title {
+    @extend .home-title;
+  }
+
+  .data-des {
+    @extend .home-des;
+  }
+
+  &-content {
+    display: flex;
+    column-gap: 3rem;
+    justify-content: center;
+    padding-top: 3rem;
+  }
+
+  &-box {
+    @include text-margin(0);
+  }
+
+  &-initial {
+    font-size: $smaller-font-size;
+  }
+
+  &-title {
+    // font-size: $bigger-font-size;
+    // 次要scss裡的@media不可執行，因為次要scss只會翻譯一次，需把條件加到主要scss裡的@media才可執行；或是在次要scss設置:root{}，然後在主要scss裡用var()套用變數才可執行
+    font-size: var(--bigger-font-size);
+    font-weight: $font-light;
+
+    & span {
+      font-size: $big-font-size;
+    }
+  }
+
+  &-des {
+    font-size: $smaller-font-size;
+    line-height: $line-height-smallest;
+  }
+
+  &-img {
+    display: flex;
+    justify-content: center;
+    padding-top: 2.5rem;
+    padding-bottom: 10rem;
+    & img {
+      width: 218px;
+    }
+  }
+}
+
+// animation
+.airpods {
+  animation: airpods 3s infinite;
+  @keyframes airpods {
+    50% {
+      transform: translateY(-6%);
+    }
+  }
+}
+
+// 螢幕寬度大於等於768px時
+@media screen and (min-width: 768px) {
+  // 次要scss裡的@media不可執行，因為次要scss只會翻譯一次，需把條件加到主要scss裡的@media才可執行；或是在次要scss設置:root{}，然後在主要scss裡用var()套用變數才可執行
+  //   $bigger-font-size: 3rem;
+
+  .nav {
+    &-menu {
+      margin-left: auto;
+    }
+
+    &-list {
+      display: flex;
+    }
+
+    &-item {
+      margin-right: 1.5rem;
+    }
+  }
+
+  .home {
+    height: 1600px;
+
+    &-data {
+      padding-top: 10rem;
+    }
+
+    &-title {
+      font-weight: $font-medium;
+    }
+
+    &-des {
+      font-size: $big-font-size;
+      font-weight: $font-light;
+      line-height: $line-height-medium;
+    }
+
+    &-img {
+      & img {
+        object-fit: scale-down;
+        width: 450px;
+        height: 900px;
+      }
+    }
+  }
+
+  .details {
+    // 次要scss裡的@media不可執行，因為次要scss只會翻譯一次，需把條件加到主要scss裡的@media才可執行；或是在次要scss設置:root{}，然後在主要scss裡用var()套用變數才可執行
+    // &-title {
+    //   font-size: $bigger-font-size;
+    // }
+
+    &-img {
+      & img {
+        width: 300px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .nav {
+    @include margin-center(auto);
+  }
+}

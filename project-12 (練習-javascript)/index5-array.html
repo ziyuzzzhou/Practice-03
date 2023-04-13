@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0329 javascript-5</title>
+  </head>
+  <style>
+    p {
+      font-size: 2rem;
+    }
+  </style>
+  <body>
+    <button>執行操作</button>
+    <p>一段文字</p>
+
+    <script>
+      // 數組，[位置0, 位置1, 位置2, 位置3]
+      var myArray = ["aaa", "bbb", "ccc", "ddd"];
+
+      document.getElementsByTagName("button")[0].onclick = function () {
+        // push添加
+        // 字串
+        // myArray.push("eee", "fff", "ggg");
+        // 數值，也可跟字串放在同一array
+        myArray.push(25, 26, 27);
+
+        // splice刪除
+        // 以下代表從位置1本身開始刪除2項
+        // myArray.splice(1, 2);
+        // 以下代表從位置1本身開始刪除0項，從位置1本身添加"十", 20
+        // myArray.splice(1, 0, "十", 20);
+        // 以下代表從位置2本身開始刪除3項，從位置2本身添加"十", 20
+        myArray.splice(2, 3, "十", 20);
+
+        // 選取array中的位置2
+        // document.getElementsByTagName("p")[0].innerHTML = myArray[2];
+
+        document.getElementsByTagName("p")[0].innerHTML = myArray;
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0330 javascript-9</title>
+  </head>
+  <style>
+    p {
+      font-size: 2rem;
+    }
+  </style>
+  <body>
+    <h1>猜一個從0到3的整數</h1>
+    <input type="text" value="" />
+    <button>確 認</button>
+    <p></p>
+
+    <script>
+      // 一
+      // 2的3次方
+      // var x = 2;
+      // console.log(Math.pow(x, 3));
+
+      // 二
+      // random生成從0-1但不包含1的隨機數
+      // *4會生成0-3.9999999的隨機數
+      // console.log(Math.random() * 4);
+
+      // 三
+      // floor取整數
+      // x = Math.random() * 4;
+      // console.log(Math.floor(x));
+
+      document.getElementsByTagName("button")[0].onclick = function () {
+        // 測試，打開F12檢查
+        // input內輸入的東西為字串，所以這裡用三等於號無法與var x = 2的2相等，var x = 2的2是數值
+        // var x = 2;
+        // if (x == document.getElementsByTagName("input")[0].value) {
+        //   console.log("It works.");
+        // } else {
+        //   console.log("It doesn't work.");
+        // }
+
+        x = Math.random() * 4;
+        x = Math.floor(x);
+        if (x == document.getElementsByTagName("input")[0].value) {
+          document.getElementsByTagName("p")[0].innerHTML = "喔耶! 猜對了!";
+        } else {
+          document.getElementsByTagName("p")[0].innerHTML =
+            "猜錯囉，隨機數為: " + x;
+        }
+      };
+    </script>
+  </body>
+</html>

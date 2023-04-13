@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0329 javascript-2</title>
+    <style>
+      #circle {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        background-color: #aaf;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      #circle p {
+        color: rgb(77, 176, 77);
+        font-size: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Learning JS</h1>
+    <div id="circle">
+      <p>this is text 1</p>
+      <p>this is text 2</p>
+    </div>
+
+    <script>
+      document.getElementById("circle").onclick = function () {
+        // document.getElementById("circle").style = 'background-color: #ffa';
+        // 以下方式相同，可用F12 console去查找屬性來修改，複製document.getElementById("circle").style，然後點小三角形
+        document.getElementById("circle").style.backgroundColor = "#aff";
+        // querySelector只會選到第一個
+        document.querySelector("#circle p").style.color = "#000";
+      };
+
+      // querySelectorAll可選到所有，但必須加[]指定選取第幾個
+      document.querySelectorAll("#circle p")[1].setAttribute("class", "txt");
+    </script>
+  </body>
+</html>

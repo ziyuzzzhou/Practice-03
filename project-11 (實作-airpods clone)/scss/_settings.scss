@@ -1,0 +1,30 @@
+@import "./variables";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: $body-fonts;
+  background-color: $white-color;
+  color: $first-color;
+}
+
+// 把預設空間先設為0，再去調整成需要的高度
+h3,
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}

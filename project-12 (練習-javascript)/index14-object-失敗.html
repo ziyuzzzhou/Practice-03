@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0330 javascript-14-1</title>
+    <style media="screen">
+      #canvas {
+        border: 1px solid #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JS Learning</h1>
+    <canvas id="canvas" width="300" height="300"></canvas>
+
+    <script>
+      // 定義object
+      var circle = {
+        X: 100,
+        y: 75,
+        radius: 50,
+        better_radius: function (b, rad) {
+          if (rad > b) {
+            return 75;
+          } else {
+            return rad;
+          }
+        },
+      };
+
+      circle.radius = circle.better_radius(circle.y, circle.radius);
+
+      function my_circle(a, b, rad) {
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "lightblue";
+        ctx.arc(a, b, rad, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      my_circle(circle.x, circle.y, circle.radius);
+    </script>
+  </body>
+</html>

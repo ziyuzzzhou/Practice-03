@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0330 javascript-12</title>
+    <style media="screen">
+      #canvas {
+        border: 1px solid #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JS Learning</h1>
+    <canvas id="canvas" width="300" height="300"></canvas>
+
+    <script>
+      var canvas = document.getElementById("canvas");
+      // 2d繪圖
+      var ctx = canvas.getContext("2d");
+
+      // 填滿色彩
+      ctx.fillStyle = "lightblue";
+
+      // 填充矩形 (x, y, w, h)
+      ctx.fillRect(25, 25, 100, 100);
+
+      // 框線矩形
+      ctx.strokeRect(40, 40, 100, 100);
+
+      // 開始路徑，或重置當前路徑。
+      ctx.beginPath();
+      // 繪製圓形或弧線 (x,y,r,s,e)
+      // x,y是圓心的座標，r是半徑，s和e是起點和終點的角度
+      // Math.PI是180度，所以從0度開始繪製360度就是完整的圓
+      // 後面可加true表順時針，false表逆時針(預設)
+      ctx.arc(220, 220, 50, 0, Math.PI * 2, true);
+      // 填充當前圖形
+      ctx.fill();
+      // 為當前圖形添加框線
+      ctx.stroke();
+    </script>
+  </body>
+</html>

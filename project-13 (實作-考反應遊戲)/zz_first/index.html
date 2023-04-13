@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0401 考反應遊戲-1</title>
+    <link rel="stylesheet" href="./scss/style.css" />
+  </head>
+  <body>
+    <h1>考考你的反應!!!</h1>
+    <p>反應時間: <span id="time">0 </span>秒</p>
+    <div id="box"></div>
+
+    <script>
+      var box = document.getElementById("box");
+      var title = document.getElementsByTagName("h1")[0];
+      var paragraph = document.getElementsByTagName("p")[0];
+
+      // 初始化
+      // 盒子出現時間
+      var createdTime = 0;
+      // 用戶點擊時間
+      var clickedTime = 0;
+      // 相減，時間差
+      var reactionTime = 0;
+
+      function get_fullHeight(block) {
+        var height = block.offsetHeight;
+        var style = window.getComputedStyle(block);
+        // height =
+        //   height + parseInt(style.marginTop) + parseInt(style.marginBottom);
+        height += parseInt(style.marginTop) + parseInt(style.marginBottom);
+
+        return height;
+      }
+
+      function get_randomRange(min, max) {
+        var diff = max - min;
+        var rand = Math.random();
+        rand = Math.floor(rand * diff) + 1 + min;
+
+        // 沒返回會出現undefined
+        return rand;
+      }
+
+      // 創建方形
+      function makeBox() {
+        // 0-0.999999的隨機數
+        var time = Math.random();
+        // 需延遲2秒=2000毫秒
+        // 取1-2000的整數
+        time = Math.floor(time * 2000) + 1;
+
+        // 製造時間差，推後去執行 setTimeout(function, time);
+        // 單位是毫秒
+        setTimeout(function () {
+          // 使盒子圓形與方形機率各半
+          // 0-0.999999的隨機數取中間點為0.5
+          if (Math.random() > 0.5) {
+            box.style.borderRadius = "50%";
+          } else {
+            box.style.borderRadius = "0";
+          }
+
+          var green = get_randomRange(50, 200);
+          var color = "rgba(255, " + green + ", 100, 1.0)";
+          box.style.backgroundColor = color;
+
+          // 先創建再移動，所以提前
+          box.style.display = "block";
+
+          var box_size = get_fullHeight(box);
+          var h1_size = get_fullHeight(title);
+          var p_size = get_fullHeight(paragraph);
+          var remain_height = box_size + h1_size + p_size;
+          // console.log(remain_hieght)
+          var top = Math.floor(
+            Math.random() * (window.innerHeight - remain_height) + 1
+          );
+          var left = Math.floor(
+            Math.random() * (window.innerWidth - box_size) + 1
+          );
+
+          // 字串string加變數會變字串
+          box.style.top = top + "px";
+          box.style.left = left + "px";
+
+          // 先創建再移動，移到上面
+          // box.style.display = "block";
+          createdTime = Date.now();
+        }, time);
+      }
+
+      box.onclick = function () {
+        box.style.display = "none";
+
+        // 1970/1/1到現在的時間間隔
+        clickedTime = Date.now();
+        // 毫秒/1000=秒
+        reactionTime = (clickedTime - createdTime) / 1000;
+        document.getElementById("time").innerHTML = reactionTime;
+
+        // 創建方形
+        makeBox();
+      };
+
+      // 創建方形
+      makeBox();
+    </script>
+  </body>
+</html>

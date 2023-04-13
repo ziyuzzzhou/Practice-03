@@ -1,0 +1,56 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.grid-item {
+  background-color: #d8c8e4;
+  border: 5px solid rgb(134, 183, 138);
+  font-size: 25px;
+}
+
+.grid-container {
+  display: grid;
+  /* grid-template-columns: 200px 100px; */
+  /*fraction，依視窗比例*/
+  /* grid-template-columns: 2fr 1fr; */
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-columns: repeat(2, 2fr 1fr); */
+  /* grid-template-rows: 200px 150px; */
+  grid-auto-rows: 150px;
+  /* grid-template-rows: minmax(150px, auto); */
+  /* grid-column-gap: 20px;
+  grid-row-gap: 10px; */
+  grid-gap: 30px;
+  /* grid-template-areas:
+    "hiii hiii"
+    "sidebar content"
+    "sidebar content"; */
+}
+
+.grid-item1 {
+  /* grid-area: hiii; */
+  grid-column-start: 1;
+  /* 把中間margin也算進去，所以不是2是3 */
+  grid-column-end: 3;
+  /* 以下4作法都是佔據整行 */
+  /* grid-column-start: 1; */
+  /* grid-column-end: 5; */
+  /* grid-column-start: 1; */
+  /* grid-column-end: -1; */
+  /* grid-column: 1 / -1; */
+  /* 橫向合併3個盒子，較直觀、簡易 */
+  /* grid-column: span 3; */
+}
+
+.grid-item2 {
+  /* grid-area: sidebar; */
+  /* 縱向合併2個盒子，較直觀、簡易 */
+  grid-row: span 2;
+}
+
+.grid-item3 {
+  /* grid-area: content; */
+  grid-row: span 2;
+}

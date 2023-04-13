@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0331 javascript-16</title>
+    <style media="screen">
+      #canvas {
+        border: 1px solid #aaa;
+      }
+      .txt::after {
+        content: " After txt";
+        background-color: #aaf;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JS Learning</h1>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <div class="txt">It's a canvas</div>
+
+    <script>
+      var canvas = document.getElementById("canvas");
+      // 1.
+      // console.log(canvas.width);
+      // 2.
+      // canvas.style.width="400px";
+      // console.log(canvas.style.width);
+      // 3.
+      // 直接獲取css，無須先賦予值
+      var canOb = window.getComputedStyle(canvas);
+      console.log(canOb.width);
+
+      var txt = document.getElementsByClassName("txt")[0];
+      // getComputedStyle可填兩個參數，後填pseudo elements可填可不填
+      var txtOb = window.getComputedStyle(txt, "::after");
+      console.log(txtOb.backgroundColor);
+    </script>
+  </body>
+</html>

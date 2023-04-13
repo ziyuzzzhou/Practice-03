@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0330 javascript-11</title>
+  </head>
+  <body>
+    <h1>JS循環語句，用F12 console檢查</h1>
+
+    <script>
+      for (var i = 0; i < 60; i += 10) {
+        console.log("操作第", i, "次");
+        // break加不加{}都可
+        // if (i === 30) break;
+        if (i === 30) {
+          break;
+        }
+      }
+
+      // i===30的時候就立即跳出，所以不會到console.log，不會印出30及後面所有
+      var i = 0;
+      while (i < 60) {
+        if (i === 30) {
+          break;
+        }
+        console.log("操作第", i, "次");
+        i += 10;
+      }
+
+      // if()成立continue後面的東西不執行，其他不符合if()的繼續執行
+      // 以下continue放的位置30還是會印出來，因為continue後面沒東西等於不影響
+      // var i = 0;
+      // while (i < 50) {
+      //   console.log("操作第", i, "次");
+      //   i += 10;
+      //   if (i === 30) {
+      //     continue;
+      //   }
+      // }
+
+      // if()成立continue後面的東西不執行，其他不符合if()的繼續執行
+      // 以下console.log放在continue後，所以就不會印出30，其他仍會繼續執行
+      var i = 0;
+      while (i < 50) {
+        i += 10;
+        if (i === 30) {
+          continue;
+        }
+        console.log("操作第", i, "次");
+      }
+    </script>
+  </body>
+</html>

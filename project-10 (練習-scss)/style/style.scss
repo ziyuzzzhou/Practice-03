@@ -1,0 +1,66 @@
+// 導入顏色與section2
+@import "./variables/colors";
+@import "./section2/section2";
+
+// 重複部分可使用@mixin；然後下面用@include套用
+// @mixin可添加屬性，@extend不行
+@mixin section($width, $height) {
+  width: $width;
+  height: $height;
+  background-color: $background;
+}
+
+.container {
+  .section-1 {
+    @include section(100px, 100px);
+    button {
+      background-color: $btn-color;
+      // &可表示父層，在此即表示button
+      &:hover {
+        background-color: #aff;
+      }
+      &::after {
+        content: " It!!!";
+      }
+      //   不能沒有冒號
+      font: {
+        size: 1rem;
+        weight: bold;
+      }
+      //   font-size: 1rem;
+      //   font-weight: bold;
+    }
+    // button:hover {
+    //   background-color: #aff;
+    // }
+  }
+  .section-2 {
+    @include section(300px, 200px);
+  }
+  .section-3 {
+    @include section(100px, 100px);
+    button {
+      background-color: $btn-color;
+      &:hover {
+        background-color: #aff;
+      }
+    }
+  }
+  //   佔位符placeholder
+  %hehehe {
+    font: {
+      size: 2rem;
+      weight: bold;
+    }
+  }
+  .section-4 {
+    // 繼承
+    @extend .section-2;
+    // @mixin可添加屬性，@extend不行，只能用覆蓋的方式
+    width: 400px;
+    background-color: #ccc;
+    p {
+      @extend %hehehe;
+    }
+  }
+}

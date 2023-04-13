@@ -1,0 +1,33 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: rgb(161, 226, 204);
+  width: 520px;
+  height: 500px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+  resize: horizontal;
+  overflow: hidden;
+}
+
+.card {
+  background-color: rgb(226, 226, 144);
+  border: 1px dashed rgb(80, 80, 226);
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.photo {
+  background-color: rgb(161, 226, 204);
+  border: 1px dashed rgb(80, 80, 226);
+  width: 120px;
+  height: 100px;
+}
