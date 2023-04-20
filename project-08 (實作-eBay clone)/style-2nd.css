@@ -534,8 +534,6 @@ section.main-body .banner .child3 {
   }
 
   section.main-body .banner .container {
-    height: 100%;
-
     grid-template-columns: 1fr;
   }
 
@@ -940,7 +938,7 @@ section.card .second-line.hidden {
   }
 }
 
-@media screen and (max-width: 430px){
+@media screen and (max-width: 430px) {
   section.card .container .card-title {
     font-size: 9px;
   }
