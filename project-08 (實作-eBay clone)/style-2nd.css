@@ -125,6 +125,7 @@ header .cart {
 section.main-body,
 footer {
   border-top: 1px solid #ddd;
+  min-width: 570px;
 }
 
 nav.search-bar {
@@ -454,6 +455,10 @@ section.main-body .nav-container .item a.active::before {
 }
 
 @media screen and (max-width: 640px) {
+  section.main-body .nav-container {
+    min-width: 570px;
+  }
+
   section.main-body .nav-container .center-nav {
     width: 500px;
   }
@@ -529,6 +534,8 @@ section.main-body .banner .child3 {
   }
 
   section.main-body .banner .container {
+    height: 100%;
+
     grid-template-columns: 1fr;
   }
 
@@ -636,15 +643,13 @@ section.collections .description-container {
 }
 
 section.collections .description {
-  padding: 1.3rem;
+  padding: 0.8rem;
 }
 
 section.collections .description h2 {
   color: #000;
   font-weight: 400;
-  line-height: 1.6rem;
-
-  margin-top: 2px;
+  line-height: 1.5rem;
 }
 
 section.collections .description p {
@@ -652,8 +657,6 @@ section.collections .description p {
   line-height: 1.5rem;
   /* 文字間距平均分配 */
   text-align: justify;
-
-  margin-top: 1rem;
 }
 
 section.collections .list-container {
@@ -934,6 +937,12 @@ section.card .second-line.hidden {
     );
 
     grid-column-gap: var(--card-container-gap);
+  }
+}
+
+@media screen and (max-width: 430px){
+  section.card .container .card-title {
+    font-size: 9px;
   }
 }
 
