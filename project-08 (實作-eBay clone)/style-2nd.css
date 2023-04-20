@@ -324,10 +324,7 @@ nav.search-bar .advanced-option:hover {
 
 @media screen and (max-width: 663px) {
   nav.search-bar .input-placeholder .placeholder i {
-    /* 用手機看還是會出現 */
-    /* display: none; */
-    position: absolute;
-    z-index: -20;
+    display: none;
   }
 }
 
