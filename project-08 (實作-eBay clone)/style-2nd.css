@@ -325,6 +325,7 @@ nav.search-bar .advanced-option:hover {
 @media screen and (max-width: 663px) {
   nav.search-bar .input-placeholder .placeholder i {
     display: none;
+    opacity: 0;
   }
 }
 
